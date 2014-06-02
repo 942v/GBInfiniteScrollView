@@ -8,7 +8,7 @@
 
 #import "GBInfiniteScrollView.h"
 
-static CGFloat const GBAutoScrollDefaultInterval = 3.0f;
+static const CGFloat GBAutoScrollDefaultInterval = 3.0f;
 
 @interface GBInfiniteScrollView ()
 
