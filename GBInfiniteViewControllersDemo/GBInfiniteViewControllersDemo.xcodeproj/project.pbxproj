@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112A2B34193C17C40041FF31 /* libGBInfiniteScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 112A2B33193C17C40041FF31 /* libGBInfiniteScrollView.a */; };
 		4313F39D1937B644001FEACF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4313F39C1937B644001FEACF /* Foundation.framework */; };
 		4313F39F1937B644001FEACF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4313F39E1937B644001FEACF /* CoreGraphics.framework */; };
 		4313F3A11937B644001FEACF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4313F3A01937B644001FEACF /* UIKit.framework */; };
@@ -23,7 +24,6 @@
 		4313F3CB1937B645001FEACF /* GBInfiniteViewControllersDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4313F3CA1937B645001FEACF /* GBInfiniteViewControllersDemoTests.m */; };
 		4313F3D61937B6E2001FEACF /* GBFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4313F3D51937B6E2001FEACF /* GBFirstViewController.m */; };
 		4313F3D91937B70C001FEACF /* GBSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4313F3D81937B70C001FEACF /* GBSecondViewController.m */; };
-		4313F3DB1937C79C001FEACF /* libGBInfiniteScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4313F3DA1937C79C001FEACF /* libGBInfiniteScrollView.a */; };
 		4313F3DE1937D810001FEACF /* GBRoundBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4313F3DD1937D810001FEACF /* GBRoundBorderedButton.m */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		112A2B33193C17C40041FF31 /* libGBInfiniteScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGBInfiniteScrollView.a; path = "../GBInfiniteScrollView/build/Debug-iphoneos/libGBInfiniteScrollView.a"; sourceTree = "<group>"; };
 		4313F3991937B644001FEACF /* GBInfiniteViewControllersDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBInfiniteViewControllersDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4313F39C1937B644001FEACF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4313F39E1937B644001FEACF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,7 +62,6 @@
 		4313F3D51937B6E2001FEACF /* GBFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBFirstViewController.m; sourceTree = "<group>"; };
 		4313F3D71937B70C001FEACF /* GBSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBSecondViewController.h; sourceTree = "<group>"; };
 		4313F3D81937B70C001FEACF /* GBSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBSecondViewController.m; sourceTree = "<group>"; };
-		4313F3DA1937C79C001FEACF /* libGBInfiniteScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGBInfiniteScrollView.a; path = "../../../Library/Developer/Xcode/DerivedData/GBInfiniteScrollView-edronfnxpnachpfcgaxqokzpftby/Build/Products/Debug-iphoneos/libGBInfiniteScrollView.a"; sourceTree = "<group>"; };
 		4313F3DC1937D810001FEACF /* GBRoundBorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBRoundBorderedButton.h; sourceTree = "<group>"; };
 		4313F3DD1937D810001FEACF /* GBRoundBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBRoundBorderedButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4313F3DB1937C79C001FEACF /* libGBInfiniteScrollView.a in Frameworks */,
+				112A2B34193C17C40041FF31 /* libGBInfiniteScrollView.a in Frameworks */,
 				4313F39F1937B644001FEACF /* CoreGraphics.framework in Frameworks */,
 				4313F3A11937B644001FEACF /* UIKit.framework in Frameworks */,
 				4313F39D1937B644001FEACF /* Foundation.framework in Frameworks */,
@@ -113,7 +113,7 @@
 		4313F39B1937B644001FEACF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4313F3DA1937C79C001FEACF /* libGBInfiniteScrollView.a */,
+				112A2B33193C17C40041FF31 /* libGBInfiniteScrollView.a */,
 				4313F39C1937B644001FEACF /* Foundation.framework */,
 				4313F39E1937B644001FEACF /* CoreGraphics.framework */,
 				4313F3A01937B644001FEACF /* UIKit.framework */,
@@ -491,6 +491,7 @@
 				4313F3D01937B645001FEACF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4313F3D11937B645001FEACF /* Build configuration list for PBXNativeTarget "GBInfiniteViewControllersDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +500,7 @@
 				4313F3D31937B645001FEACF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
