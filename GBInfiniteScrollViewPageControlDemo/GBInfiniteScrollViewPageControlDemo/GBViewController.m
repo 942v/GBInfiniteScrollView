@@ -17,7 +17,7 @@ static CGFloat const GBMaxNumberOfPages = 10000.0f;
 
 @property (nonatomic, strong) UIImageView *placeholder;
 @property (nonatomic, strong) NSMutableArray *data;
-@property (nonatomic, strong) GBInfiniteScrollView *infiniteScrollView;
+@property (nonatomic, strong) GBInfiniteScrollViewWithPageControl *infiniteScrollView;
 @property (nonatomic, strong) UIButton *directionButton;
 @property (nonatomic, strong) UIButton *infoButton;
 @property (nonatomic, strong) UIButton *playButton;
@@ -52,8 +52,8 @@ static CGFloat const GBMaxNumberOfPages = 10000.0f;
 
 - (void)setUp
 {
-    self.debug = YES;
-    BOOL verboseDebug = YES;
+    self.debug = NO;
+    BOOL verboseDebug = NO;
     
     self.data = [[NSMutableArray alloc] init];
     
@@ -69,7 +69,8 @@ static CGFloat const GBMaxNumberOfPages = 10000.0f;
     self.infiniteScrollView.interval = 3.0f;
     self.infiniteScrollView.pageIndex = 0;
     self.infiniteScrollView.autoScrollDirection = GBAutoScrollDirectionRightToLeft;
-    self.infiniteScrollView.scrollDirection = GBScrollDirectionHorizontal; //GBScrollDirectionVertical;
+    self.infiniteScrollView.scrollDirection = GBScrollDirectionVertical; //GBScrollDirectionHorizontal; //
+    self.infiniteScrollView.pageControlPosition = GBPageControlPositionVerticalRight;
     
     [self.view addSubview:self.infiniteScrollView];
     

@@ -27,7 +27,24 @@
 #import "GBInfiniteScrollView.h"
 #import "FXPageControl.h"
 
+typedef enum : NSUInteger {
+    GBPageControlPositionVerticalRight,
+    GBPageControlPositionVerticalLeft,
+    GBPageControlPositionHorizontalBottom,
+    GBPageControlPositionHorizontalTop,
+} GBPageControlPosition;
+
+@class GBPageControlViewContainer;
+
 @interface GBInfiniteScrollViewWithPageControl : GBInfiniteScrollView
+
+@property (nonatomic) GBPageControlPosition pageControlPosition;
+
+@property (nonatomic, strong) GBPageControlViewContainer *pageControlViewContainer;
+
+@end
+
+@interface GBPageControlViewContainer : UIView;
 
 @property (nonatomic, strong) FXPageControl *pageControl;
 
