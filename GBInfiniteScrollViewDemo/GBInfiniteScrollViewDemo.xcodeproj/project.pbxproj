@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112DBAD319492CA000A6F707 /* libGBInfiniteScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 112DBAD219492CA000A6F707 /* libGBInfiniteScrollView.a */; };
 		430038FB187064F600978149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430038FA187064F600978149 /* Foundation.framework */; };
 		430038FD187064F600978149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430038FC187064F600978149 /* CoreGraphics.framework */; };
 		430038FF187064F600978149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430038FE187064F600978149 /* UIKit.framework */; };
@@ -21,7 +22,6 @@
 		43003924187064F600978149 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43003922187064F600978149 /* InfoPlist.strings */; };
 		43003926187064F600978149 /* GBInfiniteScrollViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43003925187064F600978149 /* GBInfiniteScrollViewDemoTests.m */; };
 		430039311870672E00978149 /* GBPageRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 430039301870672E00978149 /* GBPageRecord.m */; };
-		430039331870679800978149 /* libGBInfiniteScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 430039321870679800978149 /* libGBInfiniteScrollView.a */; };
 		430039371870786E00978149 /* Placeholder-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 430039351870786E00978149 /* Placeholder-568h@2x~iphone.png */; };
 		430039381870786E00978149 /* Placeholder@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 430039361870786E00978149 /* Placeholder@2x~iphone.png */; };
 		4320A1DC191290D900731982 /* GBRoundBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4320A1DB191290D900731982 /* GBRoundBorderedButton.m */; };
@@ -41,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		112DBAD019492A5700A6F707 /* libGBInfiniteScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGBInfiniteScrollView.a; path = "../GBInfiniteScrollView/build/Debug-iphoneos/libGBInfiniteScrollView.a"; sourceTree = "<group>"; };
+		112DBAD219492CA000A6F707 /* libGBInfiniteScrollView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGBInfiniteScrollView.a; path = "../GBInfiniteScrollView/build/Debug-iphoneos/libGBInfiniteScrollView.a"; sourceTree = "<group>"; };
 		430038F7187064F600978149 /* Infinite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Infinite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		430038FA187064F600978149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		430038FC187064F600978149 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -78,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				430039331870679800978149 /* libGBInfiniteScrollView.a in Frameworks */,
+				112DBAD319492CA000A6F707 /* libGBInfiniteScrollView.a in Frameworks */,
 				430038FD187064F600978149 /* CoreGraphics.framework in Frameworks */,
 				430038FF187064F600978149 /* UIKit.framework in Frameworks */,
 				430038FB187064F600978149 /* Foundation.framework in Frameworks */,
@@ -120,6 +122,8 @@
 		430038F9187064F600978149 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				112DBAD219492CA000A6F707 /* libGBInfiniteScrollView.a */,
+				112DBAD019492A5700A6F707 /* libGBInfiniteScrollView.a */,
 				430039321870679800978149 /* libGBInfiniteScrollView.a */,
 				430038FA187064F600978149 /* Foundation.framework */,
 				430038FC187064F600978149 /* CoreGraphics.framework */,
@@ -453,10 +457,7 @@
 				GCC_PREFIX_HEADER = "GBInfiniteScrollViewDemo/GBInfiniteScrollViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "GBInfiniteScrollViewDemo/GBInfiniteScrollViewDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/GBInfiniteScrollView-edronfnxpnachpfcgaxqokzpftby/Build/Products/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = Infinite;
 				WRAPPER_EXTENSION = app;
 			};
@@ -472,10 +473,7 @@
 				GCC_PREFIX_HEADER = "GBInfiniteScrollViewDemo/GBInfiniteScrollViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "GBInfiniteScrollViewDemo/GBInfiniteScrollViewDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/GBInfiniteScrollView-edronfnxpnachpfcgaxqokzpftby/Build/Products/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = Infinite;
 				WRAPPER_EXTENSION = app;
 			};
