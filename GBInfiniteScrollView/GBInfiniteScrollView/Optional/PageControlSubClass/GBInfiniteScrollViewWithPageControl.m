@@ -8,8 +8,6 @@
 
 #import "GBInfiniteScrollViewWithPageControl.h"
 
-static const CGFloat GBPageControlDefaultHeight = 32.f;
-
 @interface GBInfiniteScrollViewWithPageControl ()
 
 @property (nonatomic, getter = isPageControlRotated) BOOL pageControlRotated;
@@ -82,12 +80,11 @@ static const CGFloat GBPageControlDefaultHeight = 32.f;
     if(self.isDebugModeOn && self.isVerboseDebugModeOn)NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     
     CGRect pageControlFrame = self.pageControlViewContainer.frame;
+    pageControlFrame.size.height = [self.pageControlViewContainer.pageControl sizeForNumberOfPages:1].height;
     
     if ([self needsRotation]) {
-        pageControlFrame.size.height = GBPageControlDefaultHeight;
         pageControlFrame.size.width = self.frame.size.height;
     }else{
-        pageControlFrame.size.height = GBPageControlDefaultHeight;
         pageControlFrame.size.width = self.frame.size.width;
     }
     
@@ -166,6 +163,22 @@ static const CGFloat GBPageControlDefaultHeight = 32.f;
     return NO;
 }
 
+- (BOOL)fitsPageControlSizeForNumberOfPages:(NSInteger)pages{
+    if(self.isDebugModeOn && self.isVerboseDebugModeOn)NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+
+    FXPageControl *pageControl = self.pageControlViewContainer.pageControl;
+    
+    NSInteger maxDotNumber = 0;
+    
+    if (self.isPageControlRotated) {
+        maxDotNumber = (self.pageControlViewContainer.frame.size.height - pageControl.dotSpacing) / (pageControl.dotSize+pageControl.dotSpacing);
+    }else{
+        maxDotNumber = (self.pageControlViewContainer.frame.size.width - pageControl.dotSpacing) / (pageControl.dotSize+pageControl.dotSpacing);
+    }
+
+    return pages<=maxDotNumber;;
+}
+
 #pragma mark - Layout
 
 - (void)didMoveToSuperview{
@@ -180,14 +193,22 @@ static const CGFloat GBPageControlDefaultHeight = 32.f;
 {
     if(self.isDebugModeOn && self.isVerboseDebugModeOn)NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     
-    [self.pageControlViewContainer.pageControl setNumberOfPages:[self.infiniteScrollViewDataSource numberOfPagesInInfiniteScrollView:self]];
+    NSInteger numberPages = [self.infiniteScrollViewDataSource numberOfPagesInInfiniteScrollView:self];
+    
+    if ([self fitsPageControlSizeForNumberOfPages:numberPages]) {
+        [self.pageControlViewContainer.pageControl setNumberOfPages:numberPages];
+    }else{
+        [self.pageControlViewContainer.pageControl setNumberOfPages:0];
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if(self.isDebugModeOn && self.isVerboseDebugModeOn)NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
 
-    [self.pageControlViewContainer.pageControl setCurrentPage:self.currentPageIndex];
+    if (self.pageControlViewContainer.pageControl.numberOfPages>=self.currentPageIndex) {
+        [self.pageControlViewContainer.pageControl setCurrentPage:self.currentPageIndex];
+    }
 }
 
 @end

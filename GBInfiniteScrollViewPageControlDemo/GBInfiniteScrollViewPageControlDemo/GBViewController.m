@@ -69,7 +69,7 @@ static CGFloat const GBMaxNumberOfPages = 10000.0f;
     self.infiniteScrollView.interval = 3.0f;
     self.infiniteScrollView.pageIndex = 0;
     self.infiniteScrollView.autoScrollDirection = GBAutoScrollDirectionRightToLeft;
-    self.infiniteScrollView.scrollDirection = GBScrollDirectionHorizontal; //GBScrollDirectionVertical; //
+    self.infiniteScrollView.scrollDirection = GBScrollDirectionVertical; //GBScrollDirectionHorizontal; //
     self.infiniteScrollView.pageControlPosition = GBPageControlPositionHorizontalBottom;
     
     [self.infiniteScrollView.pageControlViewContainer.pageControl setDotColor:[UIColor whiteColor]];
