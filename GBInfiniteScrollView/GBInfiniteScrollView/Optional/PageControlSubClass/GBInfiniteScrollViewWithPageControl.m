@@ -47,7 +47,7 @@
 
 #pragma mark - Setup
 
-- (void)setupSubClass;
+- (void)setupSubClass
 {
     if(self.isDebugModeOn && self.isVerboseDebugModeOn)NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
 
@@ -57,6 +57,7 @@
     
     [self setPageControlPosition:GBPageControlPositionHorizontalBottom];
     [self setPageControlRotated:NO];
+    [self setMaxDots:0];
 }
 
 - (void)setupDefaultValuesPageControl
@@ -76,7 +77,8 @@
     if (![self.superview.subviews containsObject:self.pageControlViewContainer])[self.superview addSubview:self.pageControlViewContainer];
 }
 
-- (CGRect)pageControlFrame{
+- (CGRect)pageControlFrame
+{
     if(self.isDebugModeOn && self.isVerboseDebugModeOn)NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     
     CGRect pageControlFrame = self.pageControlViewContainer.frame;
@@ -91,7 +93,8 @@
     return pageControlFrame;
 }
 
-- (CGPoint)pageControlCenter{
+- (CGPoint)pageControlCenter
+{
     if(self.isDebugModeOn && self.isVerboseDebugModeOn)NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     
     CGPoint pageControlCenter = CGPointZero;
@@ -120,7 +123,8 @@
     return pageControlCenter;
 }
 
-- (GBPageControlPosition)getPageControlPosition{
+- (GBPageControlPosition)getPageControlPosition
+{
     if(self.isDebugModeOn && self.isVerboseDebugModeOn)NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     
     if (self.scrollDirection==GBScrollDirectionHorizontal) {
@@ -144,7 +148,8 @@
     return self.pageControlPosition;
 }
 
-- (void)checkOrientation{
+- (void)checkOrientation
+{
     if(self.isDebugModeOn && self.isVerboseDebugModeOn)NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     
     if ([self needsRotation]) {
@@ -153,7 +158,8 @@
     }
 }
 
-- (BOOL)needsRotation{
+- (BOOL)needsRotation
+{
     if(self.isDebugModeOn && self.isVerboseDebugModeOn)NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     
     if (self.scrollDirection==GBScrollDirectionVertical && !self.isPageControlRotated) {
@@ -163,7 +169,8 @@
     return NO;
 }
 
-- (BOOL)fitsPageControlSizeForNumberOfPages:(NSInteger)pages{
+- (BOOL)fitsPageControlSizeForNumberOfPages:(NSInteger)numberOfPages
+{
     if(self.isDebugModeOn && self.isVerboseDebugModeOn)NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
 
     FXPageControl *pageControl = self.pageControlViewContainer.pageControl;
@@ -175,13 +182,15 @@
     }else{
         maxDotNumber = (self.pageControlViewContainer.frame.size.width - pageControl.dotSpacing) / (pageControl.dotSize+pageControl.dotSpacing);
     }
-
-    return pages<=maxDotNumber;;
+    
+    return numberOfPages<=maxDotNumber;
 }
 
 #pragma mark - Layout
 
-- (void)didMoveToSuperview{
+- (void)didMoveToSuperview
+{
+    if(self.isDebugModeOn && self.isVerboseDebugModeOn)NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     [super didMoveToSuperview];
     
     [self setupDefaultValuesPageControl];
@@ -193,10 +202,18 @@
 {
     if(self.isDebugModeOn && self.isVerboseDebugModeOn)NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     
-    NSInteger numberPages = [self.infiniteScrollViewDataSource numberOfPagesInInfiniteScrollView:self];
+    NSInteger numberOfPages = [self.infiniteScrollViewDataSource numberOfPagesInInfiniteScrollView:self];
     
-    if ([self fitsPageControlSizeForNumberOfPages:numberPages]) {
-        [self.pageControlViewContainer.pageControl setNumberOfPages:numberPages];
+    if ([self fitsPageControlSizeForNumberOfPages:numberOfPages]) {
+        if (self.maxDots>0) {
+            if (numberOfPages<=self.maxDots) {
+                [self.pageControlViewContainer.pageControl setNumberOfPages:numberOfPages];
+            }else{
+                [self.pageControlViewContainer.pageControl setNumberOfPages:self.maxDots];
+            }
+        }else{
+            [self.pageControlViewContainer.pageControl setNumberOfPages:numberOfPages];
+        }
     }else{
         [self.pageControlViewContainer.pageControl setNumberOfPages:0];
     }

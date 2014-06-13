@@ -28,24 +28,87 @@
 #import "FXPageControl.h"
 
 typedef enum : NSUInteger {
-    GBPageControlPositionVerticalRight,
-    GBPageControlPositionVerticalLeft,
-    GBPageControlPositionHorizontalBottom,
-    GBPageControlPositionHorizontalTop,
+    GBPageControlPositionVerticalRight,     /**<
+                                             * The page control position will be on the right side of the X axis.
+                                             * ----------
+                                             * |        |
+                                             * |      . |
+                                             * |      . |
+                                             * |      . |
+                                             * |      . |
+                                             * |        |
+                                             * ----------
+                                             */
+    GBPageControlPositionVerticalLeft,      /**<
+                                             * The page control position will be on the left side of the X axis.
+                                             * ----------
+                                             * |        |
+                                             * | .      |
+                                             * | .      |
+                                             * | .      |
+                                             * | .      |
+                                             * |        |
+                                             * ----------
+                                             * @warning Default
+                                             */
+    GBPageControlPositionHorizontalBottom,  /**<
+                                             * The page control position will be on the bottom side of the Y axis.
+                                             * ----------
+                                             * |        |
+                                             * |        |
+                                             * |        |
+                                             * |        |
+                                             * |        |
+                                             * |  ....  |
+                                             * ----------
+                                             * @warning Default
+                                             */
+    GBPageControlPositionHorizontalTop,     /**<
+                                             * The page control position will be on the top side of the Y axis.
+                                             * ----------
+                                             * |  ....  |
+                                             * |        |
+                                             * |        |
+                                             * |        |
+                                             * |        |
+                                             * |        |
+                                             * ----------
+                                             */
 } GBPageControlPosition;
 
 @class GBPageControlViewContainer;
 
+#pragma mark - GBInfiniteScrollViewWithPageControl Interface
+
 @interface GBInfiniteScrollViewWithPageControl : GBInfiniteScrollView
 
+/**
+ *  The position of the page control. The rotation is automatically set from the scrollDirection property.
+ *  @warning Default: GBPageControlPositionHorizontalBottom | GBPageControlPositionVerticalLeft
+ */
 @property (nonatomic) GBPageControlPosition pageControlPosition;
 
+/**
+ *  Max number of dots. If 0 it won't be taken into account
+ *  @warning Default value 0
+ */
+@property (nonatomic, assign) NSInteger maxDots;
+
+/**
+ *  Use this view only for the customization of the frame, center or rotation properties.
+ */
 @property (nonatomic, strong) GBPageControlViewContainer *pageControlViewContainer;
 
 @end
 
+#pragma mark - GBPageControlViewContainer Interface
+
 @interface GBPageControlViewContainer : UIView;
 
+/**
+ *  See FXPageControl GitHub to see all the properties that can be customized.
+ *  @warning Only for customizing purpose. For custom frame, center or rotation use the container.
+ */
 @property (nonatomic, strong) FXPageControl *pageControl;
 
 @end
